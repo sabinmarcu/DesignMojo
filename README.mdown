@@ -1,0 +1,4 @@
+#Design Mojo
+This is only a garbage collection enabled repo for sketching a design and then dumping them. At the moment of dump, a new tag is created to remember them.
+
+What can i say, i love keeping a backup of my work.
