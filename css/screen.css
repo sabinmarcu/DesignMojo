@@ -51,12 +51,6 @@ header nav.headerBottomNav{
 header nav.headerBottomNav#headerBottomLeft{
 	left: 0;
 }
-header nav.headerBottomNav#headerBottomLeft li{
-	border-bottom-color: #777;
-}
-header nav.headerBottomNav#headerBottomLeft li:first-child{
-	padding-left: 15px;
-}
 header nav.headerBottomNav#headerBottomRight{
 	left: 225px;
 }
@@ -92,6 +86,7 @@ header nav li{
 	overflow: hidden;
 	cursor: pointer;
 	color: #fff;
+	text-transform: uppercase;
 	border-bottom: solid 1px #aaa;
 }
 header nav li:first-child{
@@ -101,6 +96,12 @@ header nav li:hover{
 	background: rgba(0, 0, 0, 0.6);
 	color: white;
 	border-bottom: solid 1px #ba0000;
+}
+header nav.headerBottomNav#headerBottomLeft li{
+	border-bottom-color: #777;
+}
+header nav.headerBottomNav#headerBottomLeft li:first-child{
+	padding-left: 15px;
 }
 aside{
 	position: absolute;
@@ -112,6 +113,13 @@ aside{
 	background: -webkit-gradient(linear, left top, right top, color-stop(0, #ccc), color-stop(0.7, #c0c0c0), color-stop(1, #ccc));
 	border-right: solid 1px #59b7ff;
 	vertical-align: bottom;
+	-webkit-transition: all .5s ease-in-out;
+}
+aside.hidden{
+	width: 0;
+}
+aside.hidden section.content{
+	opacity: 0
 }
 aside *, header *{
 	-webkit-transition: all .25s ease-in-out;
@@ -149,4 +157,13 @@ aside li:hover{
 	text-shadow: 0 -1px 0px #444;
 	box-shadow: 0 0 5px #444;
 	z-index: 9;
+}
+.toggle{
+	display: block;
+	width: 25px;
+	height: 25px;
+	background: blue;
+	position: absolute;
+	right: -25px;
+	bottom: 0;
 }

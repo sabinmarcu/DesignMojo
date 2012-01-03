@@ -14,9 +14,9 @@
 			<span class='bar'></span>
 		</nav>
 		<nav id="headerBottomRight" class='headerBottomNav'>
-			<li>MenuItem 1</li>
-			<li>MenuItem 2</li>
-			<li>MenuItem 3</li>
+			<li>Menu Item 1</li>
+			<li>Menu Item 2</li>
+			<li>Menu Item 3</li>
 			<span class="fix"></span>
 			<span class='bar'></span>
 		</nav>
@@ -67,5 +67,15 @@
 		username="Irina"
 		hash=MD5(username)
 		document.getElementById("avatarPlaceholder").src = "http://gravatar.com/avatar/" + hash + "?s=100&r=pg&d=identicon"
+		toggleList = document.getElementsByClassName("toggle")
+		function toggle()	{	
+		console.log(this.parentNode.className.indexOf("hidden"))		
+			if (this.parentNode.className.indexOf("hidden") == -1) this.parentNode.className += " hidden";
+			else this.parentNode.className = this.parentNode.className.substr(0, this.parentNode.className.indexOf(" hidden") - 1);
+		}
+		for ( element in toggleList )	{
+			element = toggleList[element]
+			element.onclick = toggle
+		}
 	</script>
 </html>
