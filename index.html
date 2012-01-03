@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>Design Testing</title>
+	<link rel="stylesheet" type="text/css" href="css/screen.css" media="all">
+	<script type="text/javascript" src="js/md5.js"></script>
+</head>
+<body>
+	<header>
+		<nav id="headerBottomLeft" class='headerBottomNav'>
+			<li>Menu Item</li>
+			<span class="fix"></span>
+			<span class='bar'></span>
+		</nav>
+		<nav id="headerBottomRight" class='headerBottomNav'>
+			<li>MenuItem 1</li>
+			<li>MenuItem 2</li>
+			<li>MenuItem 3</li>
+			<span class="fix"></span>
+			<span class='bar'></span>
+		</nav>
+		<nav id="headerOptions"></nav>
+		<section id="appData">
+			<h1></h1>
+			<h3></h3>
+		</section>
+		<section id="userInfo">
+			<span id="username"></span>
+			<span id="organization"></span>
+			<span id="context"></span>
+		</section>
+		<section id="avatar">
+				<img src="" alt="" id="avatarPlaceholder">
+				<span></span>
+		</section>	
+	</header>
+	<section></section>
+	<aside>
+		<section class="toggle"></section>
+		<section class="content">
+			<li>Mindmap 1</li>
+			<li>Mindmap 2</li>
+			<li>Mindmap 3</li>
+			<li>Mindmap 4</li>
+		</section>
+	</aside>
+	<footer>
+		<section class="toggle"></section>
+		<section class="content">
+			<article>
+				<p><span class="dropcap"></span></p>
+			</article>
+			<article>
+				<p><span class="dropcap"></span></p>
+			</article>
+			<article>
+				<p><span class="dropcap"></span></p>
+			</article>
+			<article>
+				<p><span class="dropcap"></span></p>
+			</article>
+		</section>
+	</footer>
+	</body>
+	<script type="text/javascript">
+		username="Irina"
+		hash=MD5(username)
+		document.getElementById("avatarPlaceholder").src = "http://gravatar.com/avatar/" + hash + "?s=100&r=pg&d=identicon"
+	</script>
+</html>
