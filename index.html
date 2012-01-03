@@ -68,14 +68,20 @@
 		hash=MD5(username)
 		document.getElementById("avatarPlaceholder").src = "http://gravatar.com/avatar/" + hash + "?s=100&r=pg&d=identicon"
 		toggleList = document.getElementsByClassName("toggle")
-		function toggle()	{	
-		console.log(this.parentNode.className.indexOf("hidden"))		
-			if (this.parentNode.className.indexOf("hidden") == -1) this.parentNode.className += " hidden";
-			else this.parentNode.className = this.parentNode.className.substr(0, this.parentNode.className.indexOf(" hidden") - 1);
+		function toggle()	{		
+			if (this.parentNode.className.indexOf("hidden") == -1) {
+				this.parentNode.className += " hidden";
+				this.innerHTML = "SHOW"
+			}
+			else {
+				this.parentNode.className = this.parentNode.className.substr(0, this.parentNode.className.indexOf(" hidden") - 1);
+				this.innerHTML = "HIDE"
+			}
 		}
 		for ( element in toggleList )	{
 			element = toggleList[element]
 			element.onclick = toggle
+			element.innerHTML = "HIDE"
 		}
 	</script>
 </html>

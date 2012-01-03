@@ -160,10 +160,16 @@ aside li:hover{
 }
 .toggle{
 	display: block;
-	width: 25px;
-	height: 25px;
-	background: blue;
+	width: 60px;
+	height: 15px;
+	padding: 5px 0;
+	text-align: center;
+	color: white;
+	text-shadow: 0 1px 1px black;
+	border-top-right-radius: 5px;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #222), color-stop(1, #000));
 	position: absolute;
-	right: -25px;
+	right: -60px;
 	bottom: 0;
+	cursor: pointer;
 }
