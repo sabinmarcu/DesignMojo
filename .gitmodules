@@ -1,0 +1,3 @@
+[submodule "js/cltk"]
+	path = js/cltk
+	url = git@github.com:CornLabs/CL-Toolkit.git

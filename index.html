@@ -3,10 +3,9 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Design Testing</title>
-	<link rel="stylesheet" type="text/css" href="css/screen.css" media="all">
-	<script type="text/javascript" src="js/md5.js"></script>
+	<script type="text/javascript" src="/js/script.js"></script>
 </head>
-<body>
+<body onload="ICS.init()">
 	<header>
 		<nav id="headerBottomLeft" class='headerBottomNav'>
 			<li>Menu Item</li>
@@ -63,25 +62,4 @@
 		</section>
 	</footer>
 	</body>
-	<script type="text/javascript">
-		username="Irina"
-		hash=MD5(username)
-		document.getElementById("avatarPlaceholder").src = "http://gravatar.com/avatar/" + hash + "?s=100&r=pg&d=identicon"
-		toggleList = document.getElementsByClassName("toggle")
-		function toggle()	{		
-			if (this.parentNode.className.indexOf("hidden") == -1) {
-				this.parentNode.className += " hidden";
-				this.innerHTML = "SHOW"
-			}
-			else {
-				this.parentNode.className = this.parentNode.className.substr(0, this.parentNode.className.indexOf(" hidden") - 1);
-				this.innerHTML = "HIDE"
-			}
-		}
-		for ( element in toggleList )	{
-			element = toggleList[element]
-			element.onclick = toggle
-			element.innerHTML = "HIDE"
-		}
-	</script>
 </html>
