@@ -27,10 +27,12 @@ header section#avatar{
 	height: 100px;
 	background: #fff;
 	border: solid 1px #59b7ff;
-	border-radius: 2px;
+}
+header section#avatar, header section#avatar *{	
+	border-radius: 50px;
 }
 header section#avatar:hover{
-	box-shadow: 0 0 15px #444;
+	box-shadow: 0 8px 15px #444;
 }
 header section#avatar span{
 	display: inline-block;
@@ -52,7 +54,7 @@ header nav.headerBottomNav#headerBottomLeft{
 	left: 0;
 }
 header nav.headerBottomNav#headerBottomRight{
-	left: 225px;
+	left: 215px;
 }
 header nav.headerBottomNav span.fix{
 	position: absolute;

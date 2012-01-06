@@ -9,23 +9,13 @@ ICS = {
 				CL.DynamicFileLoader.addLib({"name": 'md5', "location": '/js/md5.js'})
 				CL.DynamicFileLoader.addLib({"name": 'IO Sockets', "location": '/socket.io/socket.io.js'})
 				CL.DynamicFileLoader.processQueue(function(){
-					username=prompt("username")
-					password=prompt("password")
-					var sock = io.connect("http://localhost")
-					sock.emit("sentLoginData", { "username" : username, "password" : password})
-					sock.on("getGravatar", function(data){	
-						console.log(data)		
-						hash=MD5(data.email)
-						document.getElementById("avatarPlaceholder").src = "http://gravatar.com/avatar/" + hash + "?s=100&r=pg&d=identicon"
-					})
+					ICS.sock = io.connect("http://localhost")
+					ICS.login()
 				})
 			})
 			s.parentNode.removeChild(s)
 		}
 		document.head.appendChild(s)
-
-
-
 
 		toggleList = document.getElementsByClassName("toggle")
 		function toggle()	{		
@@ -44,8 +34,35 @@ ICS = {
 			element.innerHTML = "HIDE"
 		}
 	},
-	login: function{
-		promt	
+	login: function()	{
+		CL.LightBox.reuse("loginForm", "Login", function() {
+			ICS.sock.emit("attemptLogin", { 
+				"username" : document.getElementById("loginUsername").value, 
+				"password" : document.getElementById("loginPassword").value
+			})
+		}).addController("Input", {"value": " Username", 'id': "loginUsername"}).addController("Password", {"value" : "Password", 'id': "loginPassword"}).addController("Submit", {"value": "Attempt Login"}).show(25)
+
+		CL.LightBox.reuse("infoForm", "Login Information").addController("Description", {"id": "loginResultDescription"})
+
+
+		ICS.sock.on("loginSuccessful", function(data){	
+			hash=MD5(data.email)
+			document.getElementById("avatarPlaceholder").src = "http://gravatar.com/avatar/" + hash + "?s=100&r=pg&d=identicon"
+			CL.LightBox.reuse("loginForm").hide(25)
+			CL.LightBox.reuse("infoForm").setProperty("loginResultDescription", 'value', '<span style="color: green">Success!</span>').show(5, function() {
+				setTimeout(function(){ CL.LightBox.reuse("infoForm").hide(25) }.bind(this), 1000)
+			})
+		})
+
+		ICS.sock.on("loginFailed", function(data){
+			console.log(data)	
+			CL.LightBox.reuse("infoForm").setProperty("loginResultDescription", 'value', '<span style="color: red">Problem!</span><br>' + data).show(10, function() {
+				setTimeout(function(){ CL.LightBox.reuse("infoForm").hide(10) }.bind(this), 1500)
+			})
+		})
+	},
+	attemptLogin: function()	{
+		
 	}
 }
 
